@@ -15,10 +15,12 @@ class OPCacheResetCommand extends Command
 	{
 		$route = (version_compare(app()->version(), '5.6.12') >= 0) ? \Illuminate\Support\Facades\URL::signedRoute('opcache-reset') : route('opcache-reset');
 
-		$response = new Client([
+		$guzzle = new Client([
 			'http_errors' => false,
 			'verify'      => false,
-		])->get($route);
+		]);
+
+		$response = $guzzle->get($route);
 
 		if ($response->getStatusCode() === 200) {
 			return json_decode($response->getBody()->getContents());
