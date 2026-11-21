@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-opcache` will be documented in this file
 
+## 1.5.0 - 2026-11-21
+- Support PHP 8.6
+
 ## 1.4.0 - 2026-03-17
 - Support PHP 8.5
 
